@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
-import tmdbApi, { category } from "../../api/tmdbApi";
+import tmdbApi from "../../api/tmdbApi";
 import apiConfig from "../../api/apiConfig";
 import "./detail.scss";
 import CastList from "./CastList";

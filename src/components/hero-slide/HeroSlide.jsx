@@ -69,7 +69,7 @@ const HeroSlideItem = (props) => {
     item.backdrop_path ? item.backdrop_path : item.poster_path
   );
   const setModalActive = async () => {
-    const modal = document.querySelector(`#modal_675353`);
+    const modal = document.querySelector(`#modal_${item.id}`);
     const videos = await tmdbApi.getVideos(category.movie, item.id);
     if (videos.results.length > 0) {
       const videSrc = "https://www.youtube.com/embed/" + videos.results[0].key;

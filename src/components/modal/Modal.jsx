@@ -24,14 +24,21 @@ Modal.propTypes = {
 export const ModalContent = (props) => {
   const contentRef = useRef(null);
 
-  const closeModal = () => {
-    contentRef.current.parentNode.classList.remove("active");
+  const closeModal = (e) => {
+    if (contentRef.current.contains(e.target)) {
+     contentRef.current.parentNode.classList.remove("active");
     if (props.onClose) props.onClose();
+    }
+   
   };
 
   return (
-    <div ref={contentRef} className="modal__content">
-      <div className="modal__content__close" onClick={closeModal}>
+    <div
+      ref={contentRef}
+      className="modal__content"
+      onClick={closeModal}
+    >
+      <div className="modal__content__close" >
         <i className="bx bx-x"></i>
       </div>
       {props.children}
